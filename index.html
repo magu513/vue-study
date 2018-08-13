@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <title>hello vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- テンプレートを利用してデータをDOMに描画できる-->
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <!-- 要素のtile属性に対して、Vue側からtextをバインドする-->
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title.
+        </span>
+    </div>
+    <div id="app-3">
+        <!-- 条件によって要素の表示/非表示を動的に切り替えられる -->
+        <span v-if="seen">Now you see me</span>
+    </div>
+    <div id="app-4">
+        <ol>
+            <!-- ループで配列の要素を取り出し出力する。動的に配列の要素を追加しても反映される-->
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="app-6">
+        <ol>
+            <!-- itemをプロパティtodoにバインドすることによって、動的に要素を生成することができる.-->
+            <todo-item v-for="item in groceryList" v-bind:todo="item"></todo-item>
+        </ol>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+
+
