@@ -18,3 +18,11 @@ const app3 = new Vue({
         rawHtml: '<span style="color: red">This should be red.</span>'
     }
 });
+
+const app4 = new Vue({
+    el: "#app-4",
+    data: {
+        dynamicId: "dynamic",
+        isButtonDisabled: false
+    }
+})

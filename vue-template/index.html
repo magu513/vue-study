@@ -24,6 +24,14 @@
         <!-- ただしXSSを容易に引き起こすので、ユーザーから提供されたコンテンツを決して使用しないと書いてある -->
         <p>Using v-html directive: <span v-html="rawHtml"></span></p>
     </div>
+
+    <!-- 属性 -->
+    <div id="app-4">
+        <!-- 属性にはmustacheは使用できない。そのためv-bindディレクティブを使用する必要がる -->
+        <div v-bind:id="dynamicId"></div>
+        <!-- false/undefined/nullの時buttonが非活性になる -->
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
