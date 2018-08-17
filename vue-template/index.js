@@ -25,4 +25,14 @@ const app4 = new Vue({
         dynamicId: "dynamic",
         isButtonDisabled: false
     }
+});
+
+const app5 = new Vue({
+    el: "#app-5",
+    data: {
+        number: 1,
+        ok: true,
+        message: 'Hello',
+        id: 'foobar'
+    }
 })

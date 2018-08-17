@@ -33,6 +33,18 @@
         <!-- false/undefined/nullの時buttonが非活性になる -->
         <button v-bind:disabled="isButtonDisabled">Button</button>
     </div>
+
+    <!-- JavaScript式の使用-->
+    <div id="app-5">
+        <div>{{ number + 1}}</div>
+        <div>{{ ok ? 'YES' : 'NO' }}</div>
+        <div>{{ message.split('').reverse().join('') }}</div>
+        <!-- ディレクティブ内でもJavaScript式を使用できる -->
+        <div v-bind:id="'list-' + id"></div>
+        <!-- 文は使用できない(Errorが発生する)-->
+        <!--<div>{{ var a = 1 }}</div>-->
+        <!--<div>{{ if (ok) { return message }}</div>-->
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
