@@ -35,4 +35,20 @@ const app5 = new Vue({
         message: 'Hello',
         id: 'foobar'
     }
-})
+});
+
+const app6 = new Vue({
+    el: "#app-6",
+    data: {
+        seen: false,
+        url: "https://www.google.com"
+    },
+    methods: {
+        doSomething: function() {
+            console.log("click !!")
+        },
+        onSubmit: function () {
+            console.log("submit click")
+        }
+    }
+});

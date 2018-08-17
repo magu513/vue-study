@@ -45,6 +45,17 @@
         <!--<div>{{ var a = 1 }}</div>-->
         <!--<div>{{ if (ok) { return message }}</div>-->
     </div>
+    <!-- ディレクティブ -->
+    <div id="app-6">
+        <p v-if="seen">Now you see me</p>
+        <a v-bind:href="url">url</a><br />
+        <a v-on:click="doSomething">click</a>
+
+        <!-- submit.preventはイベント実行された際event.preventDefault()を呼ぶようにする -->
+        <form v-on:submit.prevent="onSubmit">
+            <input type="submit"/>
+        </form>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
