@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <title>Computed Properties and Watchers</title>
+    <meta charset="UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- Template内で複雑なこと(オブジェクトに紐づく関数を呼び出すなど)をするとコードが肥大化し、メンテナスしづらくなる -->
+    <!-- 基本的な算出プロパティの例 -->
+    <div id="example">
+        <!-- 動的にmessageの値を変えた場合でも、reversedMessageの値も変化する -->
+        <!-- 算出プロパティはキャッシュされる。(reversedMessageを再描画が発生しても再計算されない)-->
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+
+        <!--　算出プロパティ vs メソッド-->
+        <!-- 算出プロパティと同様にmessageが変化した際に実行される-->
+        <!-- 再描画時に常に再計算される(算出プロパティに比べコストがかかる) -->
+        <p>Reversed message:"{{ reverseMessage() }}"</p>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>
+
+
