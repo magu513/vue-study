@@ -2,10 +2,13 @@
 <html lang="ja">
 <head>
     <title>Template</title>
+    <meta charset="UTF-8"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <!-- テキストの展開 -->
+    <!-- 展開  -->
+    <!-- 二重中括弧(mustache)を利用した展開-->
+    <!-- テキスト -->
     <!-- これまでも度々現れたやつ。Angularにも似たようなのあったよね -->
     <div id="app"><span>Message: {{ msg }}</span></div>
     <!-- データの更新を行わない一度きりの展開-->
@@ -14,6 +17,51 @@
         <span v-once>Message: {{ msg }}</span>
     </div>
 
+    <!-- 生のHTML -->
+    <div id="app-3">
+        <!-- mustacheだとHTMLではなく、テキストとして出力する。 -->
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <!-- v-html ディレクティブを利用するとHTML要素として展開される。-->
+        <!-- ただしXSSを容易に引き起こすので、ユーザーから提供されたコンテンツを決して使用しないと書いてある -->
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    </div>
+
+    <!-- 属性 -->
+    <div id="app-4">
+        <!-- 属性にはmustacheは使用できない。そのためv-bindディレクティブを使用する必要がる -->
+        <div v-bind:id="dynamicId"></div>
+        <!-- false/undefined/nullの時buttonが非活性になる -->
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+    </div>
+
+    <!-- JavaScript式の使用-->
+    <div id="app-5">
+        <div>{{ number + 1}}</div>
+        <div>{{ ok ? 'YES' : 'NO' }}</div>
+        <div>{{ message.split('').reverse().join('') }}</div>
+        <!-- ディレクティブ内でもJavaScript式を使用できる -->
+        <div v-bind:id="'list-' + id"></div>
+        <!-- 文は使用できない(Errorが発生する)-->
+        <!--<div>{{ var a = 1 }}</div>-->
+        <!--<div>{{ if (ok) { return message }}</div>-->
+    </div>
+    <!-- ディレクティブ -->
+    <div id="app-6">
+        <p v-if="seen">Now you see me</p>
+        <a v-bind:href="url">url</a><br />
+        <a v-on:click="doSomething">click</a>
+
+        <!-- submit.preventはイベント実行された際event.preventDefault()を呼ぶようにする -->
+        <form v-on:submit.prevent="onSubmit">
+            <input type="submit"/>
+        </form>
+
+        <!-- 省略記法 -->
+        <!-- v-bindの省略 -->
+        <a :href="url">Shorthand url</a><br />
+        <!-- v-onの省略 -->
+        <a @click="doSomething">Shorthand click</a>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
