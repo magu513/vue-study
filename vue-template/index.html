@@ -55,6 +55,12 @@
         <form v-on:submit.prevent="onSubmit">
             <input type="submit"/>
         </form>
+
+        <!-- 省略記法 -->
+        <!-- v-bindの省略 -->
+        <a :href="url">Shorthand url</a><br />
+        <!-- v-onの省略 -->
+        <a @click="doSomething">Shorthand click</a>
     </div>
 <script src="index.js"></script>
 </body>
