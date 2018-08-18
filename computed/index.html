@@ -19,6 +19,11 @@
         <!-- 再描画時に常に再計算される(算出プロパティに比べコストがかかる) -->
         <p>Reversed message:"{{ reverseMessage() }}"</p>
     </div>
+    <!-- 監視プロパティ -->
+    <div id="demo"> {{ fullName }}</div>
+
+    <!-- 算出setter -->
+    <div id="setter"> {{ fullName }}</div>
 <script src="index.js"></script>
 </body>
 </html>
