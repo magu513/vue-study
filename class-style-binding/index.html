@@ -18,6 +18,14 @@
         <!-- 算出プロパティに束縛することができる -->
         <div v-bind:class="classObject2"></div>
     </div>
+    <!-- 配列構文 -->
+    <div id="app2">
+        <div v-bind:class="[activeClass, errorClass]"></div>
+        <!-- リスト内のクラスを条件に応じて切り替える場合は、三項演算子を使って実現する -->
+        <div v-bind:class="[isActive ? activeClass : '' , errorClass]"></div>
+        <!-- ↑は冗長なので配列内部でオブジェクト構文を使うことで簡素になる -->
+        <div v-bind:class="[{active: isActive}, errorClass]"></div>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>

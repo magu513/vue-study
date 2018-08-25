@@ -18,3 +18,12 @@ const vm = new Vue({
         }
     }
 });
+
+const vm2 = new Vue({
+    el: '#app2',
+    data: {
+        isActive: false,
+        activeClass: 'active',
+        errorClass: 'text-danger'
+    }
+});
