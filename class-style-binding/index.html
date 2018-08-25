@@ -6,6 +6,17 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+    <div id="app">
+        <!-- HTMLクラスのバインディング -->
+        <!-- v-bind:class でクラスを動的に切り替えることができる -->
+        <div v-bind:class="{ active: isActive }"></div>
+        <!-- プレーンなclass属性と共存できる -->
+        <div class="static" v-bind:class="{active: isActive, 'text-danger':hasError }"></div>
+        <!-- 束縛されるオブジェクトはインラインでなくてもよい -->
+        <div v-bind:class="classObject"></div>
+        <!-- 算出プロパティに束縛することができる -->
+        <div v-bind:class="classObject2"></div>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
