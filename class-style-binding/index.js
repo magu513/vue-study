@@ -27,3 +27,14 @@ const vm2 = new Vue({
         errorClass: 'text-danger'
     }
 });
+
+Vue.component('my-component', {
+    template: '<p class="foo bar">Hi</p>'
+});
+
+const vm3 = new Vue({
+    el: '#app3',
+    data: {
+        isActive: true
+    }
+});

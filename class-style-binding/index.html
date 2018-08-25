@@ -26,6 +26,14 @@
         <!-- ↑は冗長なので配列内部でオブジェクト構文を使うことで簡素になる -->
         <div v-bind:class="[{active: isActive}, errorClass]"></div>
     </div>
+
+    <!-- このコンポーネントにおいて -->
+    <div id="app3">
+        <!-- 独自定義されたコンポーネントに対してclassを追加しても動作する-->
+        <my-component class="baz boo"></my-component>
+        <!-- コンポーネントに対してもクラスバインディングできる -->
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
