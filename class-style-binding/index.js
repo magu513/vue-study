@@ -38,3 +38,15 @@ const vm3 = new Vue({
         isActive: true
     }
 });
+
+const vm4 = new Vue({
+    el: '#app4',
+    data: {
+        activeColor: 'red',
+        fontSize: 30,
+        styleObject: {
+            color: 'red',
+            fontSize: '13px'
+        }
+    }
+})
