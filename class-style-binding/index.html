@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <title>Computed Properties and Watchers</title>
+    <meta charset="UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- HTMLクラスのバインディング -->
+    <!-- オブジェクト構文 -->
+    <div id="app">
+        <!-- HTMLクラスのバインディング -->
+        <!-- v-bind:class でクラスを動的に切り替えることができる -->
+        <div v-bind:class="{ active: isActive }"></div>
+        <!-- プレーンなclass属性と共存できる -->
+        <div class="static" v-bind:class="{active: isActive, 'text-danger':hasError }"></div>
+        <!-- 束縛されるオブジェクトはインラインでなくてもよい -->
+        <div v-bind:class="classObject"></div>
+        <!-- 算出プロパティに束縛することができる -->
+        <div v-bind:class="classObject2"></div>
+    </div>
+    <!-- 配列構文 -->
+    <div id="app2">
+        <div v-bind:class="[activeClass, errorClass]"></div>
+        <!-- リスト内のクラスを条件に応じて切り替える場合は、三項演算子を使って実現する -->
+        <div v-bind:class="[isActive ? activeClass : '' , errorClass]"></div>
+        <!-- ↑は冗長なので配列内部でオブジェクト構文を使うことで簡素になる -->
+        <div v-bind:class="[{active: isActive}, errorClass]"></div>
+    </div>
+
+    <!-- このコンポーネントにおいて -->
+    <div id="app3">
+        <!-- 独自定義されたコンポーネントに対してclassを追加しても動作する-->
+        <my-component class="baz boo"></my-component>
+        <!-- コンポーネントに対してもクラスバインディングできる -->
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+    </div>
+
+    <!-- インラインスタイルのバインディング -->
+    <!-- オブジェクト構文 -->
+    <div id="app4">
+        <!-- styleを動的に生成 -->
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Hello</div>
+        <!-- ↑は可読性が悪いので、Objectをバインドする-->
+        <div v-bind:style="styleObject">Hello</div>
+    </div>
+
+    <!-- 配列構文 -->
+    <div id="app5">
+        <div v-bind:style="[baseStyles, overridingStyles]">Hello</div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>
+
+
