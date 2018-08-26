@@ -44,6 +44,11 @@
         <!-- ↑は可読性が悪いので、Objectをバインドする-->
         <div v-bind:style="styleObject">Hello</div>
     </div>
+
+    <!-- 配列構文 -->
+    <div id="app5">
+        <div v-bind:style="[baseStyles, overridingStyles]">Hello</div>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>

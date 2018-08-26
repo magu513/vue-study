@@ -49,4 +49,19 @@ const vm4 = new Vue({
             fontSize: '13px'
         }
     }
+});
+
+const vm5 = new Vue({
+    el: '#app5',
+    data: {
+        baseStyles: {
+            color: 'red',
+            fontWeight: 'normal'
+        },
+        overridingStyles: {
+            color: 'blue',
+            fontWeight: 'bold'
+        }
+
+    }
 })
